@@ -14,7 +14,7 @@ img = transform.resize(data.shepp_logan_phantom(), [numPix*ovsImg, numPix*ovsImg
 
 trjCart_Img = mrtrajgen.genCart(numPix*ovsImg, numPix//2)
 trjCart_Ksp = mrtrajgen.genCart(numPix, 0.5)
-trjRadial = mrtrajgen.genRadial(linspace(0, 2*pi, ceil(numPix*pi, dtype=int64), endpoint=False), linspace(0, 0.5, int(1.5*numPix/2)))
+trjRadial = mrtrajgen.genRadial(linspace(0, 2*pi, ceil(numPix*pi).astype(int64), endpoint=False), linspace(0, 0.5, int64(1.5*numPix/2)))
 sr = mrtrajgen.getSlewRate_Circle(1/numPix, 10e-6, 0.5)
 trjSpiral, _ = mrtrajgen.genSpiral_Slewrate(
     lambda t: 48*t*0.5/(numPix*pi),
