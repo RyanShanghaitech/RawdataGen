@@ -1,0 +1,4 @@
+/home/ryan/LProject/test/NUDFT/nudft/NudftServer/build/CMakeFiles/NudftServer.dir
+/home/ryan/LProject/test/NUDFT/nudft/NudftServer/build/CMakeFiles/edit_cache.dir
+/home/ryan/LProject/test/NUDFT/nudft/NudftServer/build/CMakeFiles/rebuild_cache.dir
+/home/ryan/LProject/test/NUDFT/nudft/NudftServer/build/CMakeFiles/NudftServer_autogen.dir
