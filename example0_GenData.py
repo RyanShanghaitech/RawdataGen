@@ -31,9 +31,9 @@ lstDsRadial = sdcvd.fixDs(lstDsRadial, lstDsRadial.shape[1] - 2)
 lstDsSpiral, _ = sdcvd.getDs(trjSpiral)
 lstDsSpiral = sdcvd.fixDs(lstDsSpiral, int(lstDsSpiral.shape[1]*0.9))
 
-rawdataCart = objNudft.nudft(img.reshape(-1), trjCart_Img.reshape(-1, 2), trjCart_Ksp.reshape(-1, 2)).reshape(trjCart_Ksp.shape[:-1])
-rawdataRadial = objNudft.nudft(img.reshape(-1), trjCart_Img.reshape(-1, 2), trjRadial.reshape(-1, 2)).reshape(trjRadial.shape[:-1])
-rawdataSpiral = objNudft.nudft(img.reshape(-1), trjCart_Img.reshape(-1, 2), trjSpiral.reshape(-1, 2)).reshape(trjSpiral.shape[:-1])
+rawdataCart = objNudft.nudft(img.reshape(-1), trjCart_Img.reshape(-1, 2), trjCart_Ksp.reshape(-1, 2)).reshape(trjCart_Ksp.shape[:-1])/(ovsImg**2)
+rawdataRadial = objNudft.nudft(img.reshape(-1), trjCart_Img.reshape(-1, 2), trjRadial.reshape(-1, 2)).reshape(trjRadial.shape[:-1])/(ovsImg**2)
+rawdataSpiral = objNudft.nudft(img.reshape(-1), trjCart_Img.reshape(-1, 2), trjSpiral.reshape(-1, 2)).reshape(trjSpiral.shape[:-1])/(ovsImg**2)
 
 savez("./Resource/data.npz", img=img, trjCart_Ksp=trjCart_Ksp, trjRadial=trjRadial, trjSpiral=trjSpiral, lstDsRadial=lstDsRadial, lstDsSpiral=lstDsSpiral, rawdataCart=rawdataCart, rawdataRadial=rawdataRadial, rawdataSpiral=rawdataSpiral)
 
