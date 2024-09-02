@@ -19,4 +19,4 @@ def fixDs(lstDs:ndarray, idxFix:int) -> ndarray:
     lstD2s = lstDs[:,idxFix] - lstDs[:,idxFix-1]
     for idxPt in range(idxFix, numPt):
         lstDs[:,idxPt] = lstDs[:,idxPt-1] + lstD2s
-    return lstDs.reshape([-1])
+    return lstDs
