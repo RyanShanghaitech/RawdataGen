@@ -1,7 +1,7 @@
 # Scratch to find the equalibrium of sinc function
 from numpy import *
 from matplotlib.pyplot import *
-import cfft
+import cft
 
 x = linspace(-3, 3, 1000)
 y = sin(pi*x)/(pi*x) if x[0] != 0 else 1
