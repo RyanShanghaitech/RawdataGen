@@ -1,7 +1,7 @@
 # explore the equivalent convolution kernel when dividing the F-1(KB kernel) in image domain.
 from numpy import *
 from matplotlib.pyplot import *
-import cfft
+import cft
 
 sizImg = 128
 sizWind = 6
@@ -23,10 +23,10 @@ for idxDkx in range(-ceilSizWind//2, ceilSizWind//2):
         idxKx = idxDkx+sizImg//2
         idxKy = idxDky+sizImg//2
         kspKernel[idxKy, idxKx] = getKasserBessel(idxDkx)*getKasserBessel(idxDky)
-imgMask = cfft.icft(kspKernel)
+imgMask = cft.ift(kspKernel)
 
 imgMask_Inv = 1/imgMask
-kspKernel_Inv = cfft.cft(imgMask_Inv)
+kspKernel_Inv = cft.cft(imgMask_Inv)
 
 figure()
 subplot(121)

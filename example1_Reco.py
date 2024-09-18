@@ -17,21 +17,25 @@ rawdataCart=data["rawdataCart"]
 rawdataRadial=data["rawdataRadial"]
 rawdataSpiral=data["rawdataSpiral"]
 
+print(f"rawdataCart.shape={rawdataCart.shape}")
+print(f"rawdataRadial.shape={rawdataRadial.shape}")
+print(f"rawdataSpiral.shape={rawdataSpiral.shape}")
+
 trjCart_Img = mrtrajgen.genCart(numPix, numPix//2)
-imgReco_Cart = objNudft.nuidft(rawdataCart.reshape(-1), trjCart_Ksp.reshape(-1, 2), trjCart_Img.reshape(-1, 2)).reshape(numPix, numPix)
+imgReco_Cart = objNudft.nuidft(rawdataCart.reshape(-1)/rawdataCart.size, trjCart_Ksp.reshape(-1, 2), trjCart_Img.reshape(-1, 2)).reshape(numPix, numPix)
 imgReco_Radial = objNudft.nuidft(rawdataRadial.reshape(-1)*lstDsRadial.reshape(-1), trjRadial.reshape(-1, 2), trjCart_Img.reshape(-1, 2)).reshape(numPix, numPix)
 imgReco_Spiral = objNudft.nuidft(rawdataSpiral.reshape(-1)*lstDsSpiral.reshape(-1), trjSpiral.reshape(-1, 2), trjCart_Img.reshape(-1, 2)).reshape(numPix, numPix)
 
 figure()
-imshow(abs(imgReco_Cart), cmap="gray")
-title("imgReco_Cart.abs")
+imshow(abs(imgReco_Cart), cmap="gray", vmin=0, vmax=1)
+title("imgReco_Cart.abs"); colorbar()
 
 figure()
-imshow(abs(imgReco_Radial), cmap="gray")
-title("imgReco_Radial.abs")
+imshow(abs(imgReco_Radial), cmap="gray", vmin=0, vmax=1)
+title("imgReco_Radial.abs"); colorbar()
 
 figure()
-imshow(abs(imgReco_Spiral), cmap="gray")
-title("imgReco_Spiral.abs")
+imshow(abs(imgReco_Spiral), cmap="gray", vmin=0, vmax=1)
+title("imgReco_Spiral.abs"); colorbar()
 
 show()

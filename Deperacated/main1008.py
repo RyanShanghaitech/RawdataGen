@@ -1,7 +1,7 @@
 # Try to implement sinc convolution by img-space multiplication
 from numpy import *
 from matplotlib.pyplot import *
-import cfft
+import cft
 
 numPix = 128
 idxOri = numPix//2
@@ -30,7 +30,7 @@ for idxY in range(numPix):
         if(idxY - idxOri + idxX - idxOri)%2 == 1: ker[idxY,idxX] *= -1
         # if(idxY + idxX)%2 == 0 and (idxY - idxOri + idxX - idxOri) != 0: ker[idxY,idxX] *= -1
 
-msk = cfft.icft(ker)
+msk = cft.ift(ker)
 
 figure(1)
 subplot(121)
